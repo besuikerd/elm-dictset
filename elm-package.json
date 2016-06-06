@@ -1,0 +1,18 @@
+{
+    "version": "1.0.0",
+    "summary": "helpful summary of your project, less than 80 characters",
+    "repository": "https://github.com/besuikerd/elm-dictset.git",
+    "license": "BSD3",
+    "source-directories": [
+        "src/main"
+    ],
+    "exposed-modules": [
+      "DictSet",
+      "IdSet",
+      "IntIdSet"
+    ],
+    "dependencies": {
+        "elm-lang/core": "4.0.1 <= v < 5.0.0"
+    },
+    "elm-version": "0.17.0 <= v < 0.18.0"
+}
