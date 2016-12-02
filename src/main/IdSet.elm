@@ -130,14 +130,13 @@ insertWithId : (comparable -> item) -> IdSet seed comparable item -> IdSet seed 
 insertWithId fn idSet =
   let
     (dict, idGenerator, seed) = unwrap idSet
-    (id, seed') = idGenerator seed
+    (id, newSeed) = idGenerator seed
     item = fn id
   in
     IdSet
       (Dict.insert id item dict)
       idGenerator
-      seed'
-
+      newSeed
 
 {-| Update the value of an item with the given index -}
 update

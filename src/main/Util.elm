@@ -5,6 +5,6 @@ module Util exposing
 expand1 : (b -> c) -> (a -> b -> c)
 expand1 fn =
   let
-    fn' a b = fn b
+    expandedFn a b = fn b
   in
-    fn'
+    expandedFn

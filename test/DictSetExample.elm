@@ -1,14 +1,13 @@
 module DictSetExample exposing (..)
 
 import Html exposing (..)
-import Html.App as App
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Json.Decode as Json exposing ((:=))
+import Json.Decode as Json
 import DictSet exposing (DictSet)
 
-main : Program Never
-main =  App.program
+main : Program Never Model Msg
+main =  Html.program
   { init = init
   , subscriptions = subscriptions
   , update = update
@@ -69,7 +68,7 @@ view model =
 itemInput : String -> Html Msg
 itemInput inputValue =
   input
-    [ type' "text"
+    [ type_ "text"
     , onInput OnInput
     , value inputValue
     , on "keypress" <| Json.map (always AddItem) enter
@@ -109,5 +108,4 @@ enter =
         13 -> Json.succeed ()
         _ -> Json.fail "Not enter"
   in
-    "keyCode" := Json.int
-      `Json.andThen` checkEnter
+    Json.field "keyCode" Json.int |> Json.andThen checkEnter
